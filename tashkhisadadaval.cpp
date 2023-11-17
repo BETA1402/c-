@@ -1,5 +1,7 @@
 #include <iostream>
-#iespace std;
+#include <conio.h>
+#include <list>
+using namespace std;
 int factn=1;
 
 int fact(int n){

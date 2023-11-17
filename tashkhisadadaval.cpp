@@ -3,7 +3,7 @@
 #include <list>
 using namespace std;
 int factn=1;
-
+//my pull
 int fact(int n){
 	factn=1;	
 	for(int i=n; i>0;i--){

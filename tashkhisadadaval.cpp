@@ -4,7 +4,7 @@
 using namespace std;
 int factn=1;
 
-int fact(int n){
+int fact(int p){
 	factn=1;	
 	for(int i=n; i>0;i--){
 		factn*=i;

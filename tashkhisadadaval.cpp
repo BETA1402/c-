@@ -48,7 +48,7 @@ int main()
 					int factn;
 					int first_member;
 					int second_member;
-					play_number==user_number;
+					play_number=user_number;
 					cout<<"tajzie : ";
 					do{
 						if(user_number%2==0){

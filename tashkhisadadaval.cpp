@@ -2,9 +2,10 @@
 #include <conio.h>
 #include <list>
 using namespace std;
-int factn=1;
+
 
 int fact(int n){
+	int factn;
 	factn=1;	
 	for(int i=n; i>0;i--){
 		factn*=i;
@@ -13,39 +14,41 @@ int fact(int n){
 }
 int main()
 	{
+		
 		bool bool_continue_situation=true;
 		int user_select;
 		string str_continue_situation;
-		
 		int next_member;
 		int n;
-		
 		int r_number;
 		int n_number;
-		while(bool_continue_situation){
-			
+		
+		while(bool_continue_situation){	
 			system("cls");
 			//user menu
 			cout<<"welcome to your calculator\n";
-			cout<<"1- recognize a prime number of a composite type \n";
-			cout<<"2- see the Fibonacci sequence \n";
+			cout<<"1- recognize a prime number of a composite one (+ tajzie)\n";
+			cout<<"2- see the Fibonacci sequence(1,1,2,...,n) \n";
 			cout<<"3- calculate n! \n";
-			cout<<"4-  entekhabe R ta az N ta";
+			cout<<"4- entekhabe R ta az N ta\n";//error
+			cout<<"5- chap adad haye aval az 0 ta n\n";	
+			cout<<"enter your selection: ";
 			cin>>user_select;
+			system("cls");
 		
-			//hi i am armin
 			//app main body
 			switch(user_select){
 				case 1:
+					cout<<"\t \t \t -- this app recognize that a number is prime or composite -- \n";
 					//get user test number
 					int user_number;
+					cout<<"------------------------------\n";
 					cout<<"enter a number: ";
 					cin>>user_number;
+					cout<<"------------------------------\n";
 					//2 3 5 7 9 
 					int play_number;
 					int first_enter;
-					
-					int factn;
 					int first_member;
 					int second_member;
 					play_number=user_number;
@@ -58,7 +61,7 @@ int main()
 								first_enter+=1;
 							}
 							else{
-								cout<<"*2";
+								cout<<" *2";
 							}
 							
 						}
@@ -69,7 +72,7 @@ int main()
 								first_enter+=1;
 							}
 							else{
-								cout<<"*3";
+								cout<<" *3";
 							}
 						}
 						if(user_number%5==0){
@@ -79,7 +82,7 @@ int main()
 								first_enter+=1;
 							}
 							else{
-								cout<<"*5";
+								cout<<" *5";
 							}
 						}
 						if(user_number%7==0){
@@ -89,7 +92,7 @@ int main()
 								first_enter+=1;
 							}
 							else{
-								cout<<"*7";
+								cout<<" *7";
 							}
 						}
 						if(user_number%11==0){
@@ -99,7 +102,7 @@ int main()
 								first_enter+=1;
 							}
 							else{
-								cout<<"*11";
+								cout<<" *11";
 							}
 						}
 						if(user_number%13==0){
@@ -109,7 +112,7 @@ int main()
 								first_enter+=1;
 							}
 							else{
-								cout<<"*13";
+								cout<<" *13";
 							}
 						}
 						if(user_number%17==0){
@@ -119,7 +122,7 @@ int main()
 								first_enter+=1;
 							}
 							else{
-								cout<<"*17";
+								cout<<" *17";
 							}
 						}
 						if(user_number%19==0){
@@ -129,29 +132,31 @@ int main()
 								first_enter+=1;
 							}
 							else{
-							cout<<"*19";
+								cout<<" *19";
 							}
 						}
 					}while(user_number%2==0 || user_number%3==0 || user_number%5==0 || user_number%7==0 );
-					cout<<"*"<<user_number;
-					if(user_number==play_number){
+					cout<<user_number;
+					if(user_number== play_number){
 						cout<<" * 1"<<endl;
 						cout<<"this is adade aval";	
 					}
 					else{
-						cout<<endl<<"this is not adade aval";
+						if(play_number==2||play_number==3||play_number==5||play_number==7||play_number==11||play_number==13||play_number==17||play_number==19)
+							{
+								cout<<"this is adade aval";
+							}
+							else{
+							cout<<endl<<"this is not adade aval";
+							}
 					}
 					getch();
 					break;	
 					
 				case 2:
-					
 					first_member=1;
-					
 					second_member=1;
-					//int next_member;
-					//int n;
-					
+					cout<<"\t \t \t -- you just enter n and this app will print fibonachi for you  -- \n";
 					cout<<"until which member of Fibonacci sequence do you want to continue : ";
 					cin>>n;
 					cout<<first_member<<" , "<<first_member<<" , ";
@@ -172,31 +177,39 @@ int main()
 					break;
 					
 				case 3 :
+					cout<<"\t \t \t -- this app will calculate n! for you  -- \n";
 					cout<<"enter your n to get n!: ";
 					cin>>n;
-					//factn=1;	
-					//for(int i=n; i>0;i--){
-					//	factn*=i;
-					//}
-					//cout<<factn;
 					cout<<fact(n);
 					getch();
 					break;
 					
 				case 4:
-					int tarkib_fact_n,tarkib_fact_r;
-					cout<<"enter your r (entekhabe r ta az n ta):";
-					cin>>r_number;
-					cout<<"enter your n (entekhabe r ta az n ta):";
-					cin>>n_number;
-					list<int> n_fact_list[n_number];
-					//i=-1
-					for(int i=0;i<n_number;i++){	
-						n_fact_list[i]=i+1;
-						cout<<n_fact_list[i];
+					cout<<"\t \t \t -- this app will calculate r select from n-- \n";
+					int resualt;
+   					cout<<"Enter n : ";
+   					cin>>n_number;	
+					
+   					cout<<"\nEnter r : ";
+   					cin>>r_number;
+   					
+					resualt=fact(n_number) / (fact(r_number) * fact(n_number-r_number));
+   					cout << "\nThe result : " << resualt;
+   					getch();
+					break;
+				case 5:
+					cout<<"enter the n value: ";
+					cin>>n;
+					for(int i=2;i<n;i++){
+						if(i%2==0||i%3==0||i%5==0||i%7==0){
+							if(i==2||i==3||i==5||i==7){
+								cout<<i<<" ";
+							}
+							continue;
+						}else{
+							cout<<i<<" ";
+						}
 					}
-					//cout<< (fact(n_number-1) /(fact(n_number-r_number-1) * fact(r_number)))+ ((fact(n_number-r_number-2) * fact(r_number-1)));
-					cout<<n_fact_list[n_number-1];
 					getch();
 					break;
 			}
@@ -212,4 +225,3 @@ int main()
 	}
 	
 	
-
